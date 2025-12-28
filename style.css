@@ -1,51 +1,74 @@
+:root {
+    --bg: #0d1117;
+    --text: #c9d1d9;
+    --sidebar: #161b22;
+    --accent: #58a6ff;
+}
+
+.light {
+    --bg: #ffffff;
+    --text: #1f2328;
+    --sidebar: #f6f8fa;
+    --accent: #0969da;
+}
+
 * {
     margin: 0;
-    padding: 0;
     box-sizing: border-box;
     font-family: Arial, sans-serif;
 }
 
 body {
-    background: #0d1117;
-    color: #c9d1d9;
+    background: var(--bg);
+    color: var(--text);
+    scroll-behavior: smooth;
 }
 
 .container {
     display: flex;
-    min-height: 100vh;
 }
 
 /* Sidebar */
 .sidebar {
     width: 260px;
-    background: #161b22;
+    background: var(--sidebar);
     padding: 30px;
     position: fixed;
     height: 100vh;
 }
 
 .sidebar h2 {
-    color: #58a6ff;
+    color: var(--accent);
 }
 
 .role {
-    margin: 10px 0 30px;
+    margin: 10px 0 20px;
     font-size: 14px;
-    color: #8b949e;
 }
 
 .sidebar nav a {
     display: block;
-    color: #c9d1d9;
+    margin: 12px 0;
     text-decoration: none;
-    margin: 15px 0;
+    color: var(--text);
 }
 
-.sidebar nav a:hover {
-    color: #58a6ff;
+.sidebar nav a.active {
+    color: var(--accent);
 }
 
-/* Main content */
+.resume-btn {
+    display: block;
+    margin-top: 30px;
+    padding: 10px;
+    text-align: center;
+    background: var(--accent);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+/* Content */
 .content {
     margin-left: 260px;
     padding: 40px;
@@ -55,15 +78,43 @@ section {
     margin-bottom: 60px;
 }
 
-section h1 {
-    color: #58a6ff;
+h1 {
+    color: var(--accent);
     margin-bottom: 15px;
 }
 
-ul {
-    padding-left: 20px;
+/* Buttons */
+.menu-toggle, .theme-toggle {
+    position: fixed;
+    top: 15px;
+    right: 15px;
+    z-index: 1000;
+    padding: 8px 12px;
+    border: none;
+    cursor: pointer;
 }
 
-li {
-    margin-bottom: 8px;
+.menu-toggle {
+    display: none;
+    right: 60px;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .sidebar {
+        left: -260px;
+        transition: 0.3s;
+    }
+
+    .sidebar.open {
+        left: 0;
+    }
+
+    .content {
+        margin-left: 0;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
 }
