@@ -118,3 +118,20 @@ h1 {
         display: block;
     }
 }
+
+.project h3 {
+    margin-top: 25px;
+    color: var(--accent);
+}
+
+.project ul {
+    margin-left: 20px;
+}
+
+.project ul li {
+    margin-bottom: 8px;
+}
+
+.project-list li {
+    margin: 12px 0;
+}
