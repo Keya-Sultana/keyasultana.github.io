@@ -1,3 +1,7 @@
+/* ================================
+   THEME VARIABLES
+================================ */
+
 :root {
     --bg: #0d1117;
     --text: #c9d1d9;
@@ -11,6 +15,10 @@
     --sidebar: #f6f8fa;
     --accent: #0969da;
 }
+
+/* ================================
+   GLOBAL RESET
+================================ */
 
 * {
     margin: 0;
@@ -28,7 +36,10 @@ body {
     display: flex;
 }
 
-/* Sidebar */
+/* ================================
+   SIDEBAR
+================================ */
+
 .sidebar {
     width: 260px;
     background: var(--sidebar);
@@ -68,7 +79,10 @@ body {
     border-radius: 5px;
 }
 
-/* Content */
+/* ================================
+   MAIN CONTENT
+================================ */
+
 .content {
     margin-left: 260px;
     padding: 40px;
@@ -78,13 +92,17 @@ section {
     margin-bottom: 60px;
 }
 
-h1 {
+h1, h2 {
     color: var(--accent);
     margin-bottom: 15px;
 }
 
-/* Buttons */
-.menu-toggle, .theme-toggle {
+/* ================================
+   BUTTONS
+================================ */
+
+.menu-toggle,
+.theme-toggle {
     position: fixed;
     top: 15px;
     right: 15px;
@@ -99,25 +117,10 @@ h1 {
     right: 60px;
 }
 
-/* Mobile */
-@media (max-width: 768px) {
-    .sidebar {
-        left: -260px;
-        transition: 0.3s;
-    }
+/* ================================
+   PROJECT SECTION
+================================ */
 
-    .sidebar.open {
-        left: 0;
-    }
-
-    .content {
-        margin-left: 0;
-    }
-
-    .menu-toggle {
-        display: block;
-    }
-}
 .project h3 {
     margin-top: 25px;
     color: var(--accent);
@@ -134,39 +137,76 @@ h1 {
 .project-list li {
     margin: 12px 0;
 }
-/* About section */
-.about-section {
-    display: flex;
-    gap: 30px;
-    align-items: flex-start;
+
+/* ================================
+   ABOUT PAGE BANNER
+================================ */
+
+.about-banner {
+    position: relative;
+    height: 260px;
+    background-image: url("assets/images/about-banner.png");
+    background-size: cover;
+    background-position: center;
+    border-radius: 16px;
+    margin-bottom: 40px;
+    overflow: hidden;
 }
 
+.banner-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 40px;
+}
+
+.banner-overlay h1 {
+    font-size: 32px;
+    color: #fff;
+}
+
+.banner-overlay p {
+    font-size: 15px;
+    opacity: 0.9;
+    color: #e6edf3;
+}
+
+/* ================================
+   ABOUT SECTION LAYOUT
+================================ */
+
+.about-wrapper {
+    display: flex;
+    gap: 40px;
+    align-items: flex-start;
+    max-width: 1000px;
+}
+
+/* LEFT IMAGE */
 .about-image img {
-    width: 180px;
-    height: 180px;
-    border-radius: 50%;
+    width: 220px;
+    border-radius: 14px;
     object-fit: cover;
     border: 3px solid var(--accent);
 }
 
-.about-text p {
+/* RIGHT CONTENT */
+.about-section {
+    flex: 1;
+}
+
+.about-section p {
     margin-bottom: 15px;
     line-height: 1.6;
 }
 
-/* Mobile */
-@media (max-width: 768px) {
-    .about-section {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-    }
+/* ================================
+   CONTACT SECTION
+================================ */
 
-    .about-image img {
-        width: 150px;
-        height: 150px;
-    }
-}
 .contact-image {
     text-align: center;
     margin-bottom: 20px;
@@ -183,7 +223,7 @@ h1 {
 }
 
 .contact-info a {
-    color: #4da3ff;
+    color: var(--accent);
     text-decoration: none;
 }
 
@@ -207,7 +247,7 @@ h1 {
 }
 
 .contact-form button {
-    background: #4da3ff;
+    background: var(--accent);
     color: #fff;
     padding: 10px 18px;
     border: none;
@@ -216,43 +256,44 @@ h1 {
 }
 
 .contact-form button:hover {
-    background: #2f8cff;
-}
-
-/* ABOUT PAGE BANNER */
-.about-banner {
-    position: relative;
-    height: 240px;
-    background-image: url("assets/images/about-banner.png");
-    background-size: cover;
-    background-position: center;
-    border-radius: 14px;
-    margin-bottom: 30px;
-    overflow: hidden;
-}
-
-.banner-overlay {
-    position: absolute;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.55);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding-left: 30px;
-}
-
-.banner-overlay h1 {
-    font-size: 28px;
-    margin: 0;
-}
-
-.banner-overlay p {
-    font-size: 14px;
     opacity: 0.9;
 }
 
-.about-section {
-    max-width: 900px;
+/* ================================
+   MOBILE RESPONSIVE
+================================ */
+
+@media (max-width: 768px) {
+    .sidebar {
+        left: -260px;
+        transition: 0.3s;
+    }
+
+    .sidebar.open {
+        left: 0;
+    }
+
+    .content {
+        margin-left: 0;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .about-wrapper {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .banner-overlay {
+        padding: 20px;
+        align-items: center;
+        text-align: center;
+    }
+
+    .about-image img {
+        width: 160px;
+    }
 }
-
-
