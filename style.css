@@ -297,3 +297,46 @@ h1, h2 {
         width: 160px;
     }
 }
+/* ================================
+   ODOO STACK ICONS
+================================ */
+
+.odoo-stack {
+    margin-top: 50px;
+    max-width: 1000px;
+}
+
+.odoo-stack h2 {
+    margin-bottom: 20px;
+    color: var(--accent);
+}
+
+.stack-icons {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 20px;
+}
+
+.stack-item {
+    background: var(--sidebar);
+    border-radius: 14px;
+    padding: 18px 10px;
+    text-align: center;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.stack-item:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+}
+
+.stack-item img {
+    width: 42px;
+    height: 42px;
+    margin-bottom: 10px;
+}
+
+.stack-item span {
+    font-size: 14px;
+    display: block;
+}
