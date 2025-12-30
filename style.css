@@ -294,6 +294,12 @@ h1, h2 {
         display: block;
     }
 
+    .about-banner {
+        width: 100vw;
+        margin-left: -24px;
+        margin-right: -24px;
+    }
+
     .about-wrapper {
         flex-direction: column;
         align-items: center;
