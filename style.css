@@ -345,24 +345,3 @@ h1, h2 {
 .stack-item.highlight {
     border: 2px solid var(--accent);
 }
-
-.about-highlights {
-    position: absolute;
-    bottom: 14px;
-    left: 14px;
-    right: 14px;
-    list-style: none;
-    margin: 0;
-    padding: 14px;
-    background: rgba(13, 17, 23, 0.92);
-    border-radius: 14px;
-    font-size: 12px;
-}
-
-.about-highlights li {
-    margin-bottom: 6px;
-}
-
-.about-highlights li:last-child {
-    margin-bottom: 0;
-}
