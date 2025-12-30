@@ -145,13 +145,20 @@ h1, h2 {
 .about-banner {
     position: relative;
     height: 260px;
+
+    /* FULL WIDTH */
+    width: calc(100vw - 260px);
+    margin-left: -40px;
+    margin-right: -40px;
+
     background-image: url("assets/images/about-banner.png");
     background-size: cover;
     background-position: center;
-    border-radius: 16px;
-    margin-bottom: 40px;
+
+    border-radius: 0;
     overflow: hidden;
 }
+
 
 .banner-overlay {
     position: absolute;
