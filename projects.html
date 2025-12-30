@@ -5,25 +5,116 @@
     <title>Projects | Keya Sultana</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f4f9;
+        }
+        .container {
+            display: flex;
+            min-height: 100vh;
+        }
+        aside.sidebar {
+            width: 250px;
+            background-color: #1f1f2e;
+            color: #fff;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        aside.sidebar h2 {
+            margin: 0;
+            font-size: 1.8em;
+        }
+        aside.sidebar .role {
+            font-size: 0.9em;
+            margin-bottom: 20px;
+            color: #aaa;
+        }
+        aside.sidebar nav a {
+            display: block;
+            color: #fff;
+            text-decoration: none;
+            margin: 10px 0;
+            padding: 8px 12px;
+            border-radius: 4px;
+            transition: 0.3s;
+        }
+        aside.sidebar nav a:hover, aside.sidebar nav a.active {
+            background-color: #343454;
+        }
+        aside.sidebar .resume-btn {
+            display: block;
+            text-align: center;
+            background-color: #ff6b6b;
+            padding: 10px;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 4px;
+            margin-top: 20px;
+            transition: 0.3s;
+        }
+        aside.sidebar .resume-btn:hover {
+            background-color: #ff4b4b;
+        }
+        main.content {
+            flex: 1;
+            padding: 30px;
+        }
+        main.content h1 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+        .kanban {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        .kanban-card {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.2s;
+        }
+        .kanban-card:hover {
+            transform: translateY(-5px);
+        }
+        .kanban-card h3 {
+            margin-top: 0;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+            color: #1f1f2e;
+        }
+        .kanban-card p {
+            margin: 5px 0;
+            font-size: 0.95em;
+            color: #555;
+        }
+        .kanban-card span {
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
-
-<button class="menu-toggle">☰</button>
-<button class="theme-toggle">🌙</button>
 
 <div class="container">
 
     <aside class="sidebar">
-        <h2>Keya Sultana</h2>
-        <p class="role">Odoo Developer</p>
+        <div>
+            <h2>Keya Sultana</h2>
+            <p class="role">Odoo Developer</p>
 
-        <nav>
-            <a href="index.html">About</a>
-            <a href="skills.html">Skills</a>
-            <a href="experience.html">Experience</a>
-            <a href="projects.html" class="active">Projects</a>
-            <a href="contact.html">Contact</a>
-        </nav>
+            <nav>
+                <a href="index.html">About</a>
+                <a href="skills.html">Skills</a>
+                <a href="experience.html">Experience</a>
+                <a href="projects.html" class="active">Projects</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+        </div>
 
         <a class="resume-btn" href="Keya_Sultana_Odoo_Developer_CV.pdf" download>
             Download CV
@@ -33,18 +124,81 @@
     <main class="content">
         <h1>Project Case Studies</h1>
 
-        <ul class="project-list">
-            <li><a href="project-quickbooks.html">QuickBooks Integration with Odoo</a></li>
-            <li><a href="project-google-sheets.html">Google Sheets ↔ Odoo Sync</a></li>
-            <li><a href="project-payment-gateway.html">Payment Gateway & Webhooks</a></li>
-            <li><a href="project-notifications.html">SMS, OneSignal & Interakt Integration</a></li>
-            <li><a href="project-server-deployment.html">Odoo Server Setup & Deployment</a></li>
-            <li><a href="project-migration.html">Odoo Community → Enterprise Migration</a></li>
-        </ul>
+        <div class="kanban">
+            <div class="kanban-card">
+                <h3>Q TRADE INTERNATIONA</h3>
+                <p>Modules Implemented: <span>Purchase, Sales, Inventory, Accounting, Investment, Dashboard, Reporting</span></p>
+                <p>Odoo Version: <span>18.0</span></p>
+            </div>
+
+            <div class="kanban-card">
+                <h3>DEWAN FURNITURE</h3>
+                <p>Modules Implemented: <span>Purchase, Sales, Inventory, Accounting, Point of Sales, Dashboard, Reporting</span></p>
+                <p>Odoo Version: <span>18.0</span></p>
+            </div>
+
+            <div class="kanban-card">
+                <h3>MOONLUX GROUP</h3>
+                <p>Modules Implemented: <span>HR Management, Attendance Reporting</span></p>
+                <p>Odoo Version: <span>18.0</span></p>
+            </div>
+
+            <div class="kanban-card">
+                <h3>YUKO LEATHER GOODS LTD</h3>
+                <p>Modules Implemented: <span>HRM, Purchase, Sales, Inventory, Accounting</span></p>
+                <p>Odoo Version: <span>10.0</span></p>
+            </div>
+
+            <div class="kanban-card">
+                <h3>SPEEDOZ LIMITED</h3>
+                <p>Modules Implemented: <span>Inventory, Website eCommerce</span></p>
+                <p>Odoo Version: <span>18.0</span></p>
+            </div>
+
+            <div class="kanban-card">
+                <h3>REDMIN INDUSTRIES LTD</h3>
+                <p>Modules Implemented: <span>Sales, Purchase, Inventory, Accounting, HR & Payroll, Fixed Asset, Fleet, Project, Manufacturing, Commercial & Planning</span></p>
+                <p>Odoo Version: <span>16.0 EE</span></p>
+            </div>
+
+            <div class="kanban-card">
+                <h3>OLILA GLASS INDUSTRIES LTD</h3>
+                <p>Modules Implemented: <span>HRM</span></p>
+                <p>Odoo Version: <span>14.0</span></p>
+            </div>
+
+            <div class="kanban-card">
+                <h3>NASRUL HAMID FOUNDATION</h3>
+                <p>Modules Implemented: <span>HRM, Purchase, Sales, Inventory, Accounting</span></p>
+                <p>Odoo Version: <span>16.0 EE</span></p>
+            </div>
+
+            <div class="kanban-card">
+                <h3>MEDIPLUS LTD</h3>
+                <p>Modules Implemented: <span>Purchase, Sales, Inventory, Accounting</span></p>
+                <p>Odoo Version: <span>17.0</span></p>
+            </div>
+
+            <div class="kanban-card">
+                <h3>THE EMK CENTER</h3>
+                <p>Modules Implemented: <span>HR & Payroll, Attendance</span></p>
+                <p>Odoo Version: <span>14.0</span></p>
+            </div>
+
+            <div class="kanban-card">
+                <h3>PADMA DIAGNOSTIC CENTRE LTD</h3>
+                <p>Modules Implemented: <span>HR & Payroll, Attendance, Inventory</span></p>
+                <p>Odoo Version: <span>10.0, 15.0</span></p>
+            </div>
+
+            <div class="kanban-card">
+                <h3>DUPNO TRACKER</h3>
+                <p>Project: <span>Google Sheets ↔ Odoo Data Fetch & Sync</span></p>
+            </div>
+        </div>
     </main>
 
 </div>
 
-<script src="script.js"></script>
 </body>
 </html>
