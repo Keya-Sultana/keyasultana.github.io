@@ -4,6 +4,170 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Odoo Developer Cheat Sheet | Keya Sultana</title>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Odoo Developer Cheat Sheet | Keya Sultana</title>
+
+<!-- Main Styles -->
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<button class="theme-toggle">🌙 Dark Mode</button>
+
+<div class="container">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+        <h2>Keya Sultana</h2>
+        <p class="role">Senior Odoo Developer</p>
+
+        <nav>
+            <a href="index.html">About</a>
+            <a href="skills.html">Skills</a>
+            <a href="experience.html">Experience</a>
+            <a href="projects.html">Projects</a>
+            <a href="cheat_sheet.html" class="active">Cheat Sheet</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+
+        <a class="resume-btn" href="resume_of_keya_sultana.pdf" download>
+            📄 Download Resume (PDF)
+        </a>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="content">
+
+        <h1>Odoo Developers Cheat Sheet</h1>
+
+        <div class="cheat-grid">
+
+            <!-- ORM POWER MOVES -->
+            <div class="card">
+                <div class="card-header">Odoo ORM Power Moves <span>▼</span></div>
+                <div class="card-content">
+                    <ul class="cheat-list">
+                        <li><span>✔</span> sudo() is not security</li>
+                        <li><span>✔</span> mapped() over loops</li>
+                        <li><span>✔</span> filtered() for recordsets</li>
+                        <li><span>✔</span> ensure_one() for single record</li>
+                        <li><span>✔</span> search() loads everything</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- FIELD ATTRIBUTES -->
+            <div class="card">
+                <div class="card-header">Field Attributes Gotchas <span>▼</span></div>
+                <div class="card-content">
+                    <ul class="cheat-list">
+                        <li><span>⚠</span> store=True impacts performance</li>
+                        <li><span>⚠</span> compute_sudo bypasses access</li>
+                        <li><span>⚠</span> Related fields need store</li>
+                        <li><span>⚠</span> copy=False avoids duplication</li>
+                        <li><span>⚠</span> readonly ≠ security</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- XML TRICKS -->
+            <div class="card">
+                <div class="card-header">XML View Tricks <span>▼</span></div>
+                <div class="card-content">
+                    <ul class="cheat-list">
+                        <li><span>🧩</span> attrs → use modifiers</li>
+                        <li><span>🧩</span> invisible vs groups</li>
+                        <li><span>🧩</span> Domain: view vs model</li>
+                        <li><span>🧩</span> Context sets defaults</li>
+                        <li><span>🧩</span> Decoration for feedback</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- SECURITY -->
+            <div class="card">
+                <div class="card-header">Security Essentials <span>▼</span></div>
+                <div class="card-content">
+                    <ul class="cheat-list">
+                        <li><span>🔒</span> Groups in views ≠ security</li>
+                        <li><span>🔒</span> Access Rights + Record Rules</li>
+                        <li><span>🔒</span> sudo() bypasses security</li>
+                        <li><span>🔒</span> Use check_access_rights()</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- FIELDS COMMAND -->
+            <div class="card">
+                <div class="card-header">fields.Command Explained <span>▼</span></div>
+                <div class="card-content">
+                    <ul class="cheat-list">
+                        <li><span>➕</span> create() → Add new</li>
+                        <li><span>✏</span> update() → Modify</li>
+                        <li><span>❌</span> unlink() → Remove</li>
+                        <li><span>🧹</span> clear() → Wipe relations</li>
+                        <li><span>🔗</span> link() → Add links</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- PERFORMANCE -->
+            <div class="card">
+                <div class="card-header">Odoo Performance Tips <span>▼</span></div>
+                <div class="card-content">
+                    <ul class="cheat-list">
+                        <li><span>⚡</span> Avoid heavy onchange</li>
+                        <li><span>⚡</span> Batch writes, not loops</li>
+                        <li><span>⚡</span> Use read_group()</li>
+                        <li><span>⚡</span> Prefetching is automatic</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- ERRORS -->
+            <div class="card">
+                <div class="card-header">Common Odoo Errors & Fixes <span>▼</span></div>
+                <div class="card-content">
+                    <ul class="cheat-list">
+                        <li><span>❗</span> Expected singleton → ensure_one()</li>
+                        <li><span>❗</span> AccessError → Check permissions</li>
+                        <li><span>❗</span> CacheMiss → Prefetch issue</li>
+                        <li><span>❗</span> ValueError → Validate input</li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </main>
+</div>
+
+<!-- INTERACTION SCRIPT -->
+<script>
+    // Expand / Collapse cards
+    document.querySelectorAll('.card-header').forEach(header => {
+        header.addEventListener('click', () => {
+            const content = header.nextElementSibling;
+            content.style.display = content.style.display === 'block' ? 'none' : 'block';
+        });
+    });
+
+    // Theme toggle
+    const themeBtn = document.querySelector('.theme-toggle');
+    themeBtn.addEventListener('click', () => {
+        document.body.classList.toggle('light');
+        themeBtn.textContent = document.body.classList.contains('light')
+            ? '🌙 Dark Mode'
+            : '☀️ Light Mode';
+    });
+</script>
+
+</body>
+</html>
 
 </head>
 <body>
