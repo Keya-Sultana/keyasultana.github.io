@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Odoo Developer Cheat Sheet | Keya Sultana</title>
 
-<!-- Main Styles -->
 <link rel="stylesheet" href="style.css">
 </head>
 
@@ -36,96 +35,192 @@
 
     <!-- MAIN CONTENT -->
     <main class="content">
-
         <h1>Odoo Developers Cheat Sheet</h1>
 
         <div class="cheat-grid">
 
-            <!-- ORM POWER MOVES -->
-            <div class="card">
-                <div class="card-header">Odoo ORM Power Moves <span>▼</span></div>
+            <!-- 1️⃣ MODULE STRUCTURE -->
+            <div class="card" id="module-structure">
+                <div class="card-header">1️⃣ Odoo Module Structure <span>▼</span></div>
                 <div class="card-content">
-                    <ul class="cheat-list">
-                        <li><span>✔</span> sudo() is not security</li>
-                        <li><span>✔</span> mapped() over loops</li>
-                        <li><span>✔</span> filtered() for recordsets</li>
-                        <li><span>✔</span> ensure_one() for single record</li>
-                        <li><span>✔</span> search() loads everything</li>
-                    </ul>
+<pre>
+my_module/
+├── __init__.py
+├── __manifest__.py
+├── models/
+│   ├── __init__.py
+│   └── model.py
+├── views/
+│   └── views.xml
+├── security/
+│   ├── ir.model.access.csv
+│   └── security.xml
+├── data/
+├── controllers/
+├── static/
+│   └── src/
+└── reports/
+</pre>
                 </div>
             </div>
 
-            <!-- FIELD ATTRIBUTES -->
-            <div class="card">
-                <div class="card-header">Field Attributes Gotchas <span>▼</span></div>
+            <!-- 2️⃣ PYTHON ORM -->
+            <div class="card" id="python-orm">
+                <div class="card-header">2️⃣ Python ORM (Core Concepts) <span>▼</span></div>
                 <div class="card-content">
-                    <ul class="cheat-list">
-                        <li><span>⚠</span> store=True impacts performance</li>
-                        <li><span>⚠</span> compute_sudo bypasses access</li>
-                        <li><span>⚠</span> Related fields need store</li>
-                        <li><span>⚠</span> copy=False avoids duplication</li>
-                        <li><span>⚠</span> readonly ≠ security</li>
-                    </ul>
+<pre>
+# Create
+partner = self.env['res.partner'].create({
+    'name': 'John Doe'
+})
+
+# Search
+partner = self.env['res.partner'].search(
+    [('email', '=', 'john@mail.com')], limit=1
+)
+
+# Write
+partner.write({'phone': '017XXXXXXXX'})
+
+# Delete
+partner.unlink()
+
+# Ensure single record
+partner.ensure_one()
+</pre>
                 </div>
             </div>
 
-            <!-- XML TRICKS -->
+            <!-- 3️⃣ FIELDS -->
             <div class="card">
-                <div class="card-header">XML View Tricks <span>▼</span></div>
+                <div class="card-header">3️⃣ Odoo Fields <span>▼</span></div>
                 <div class="card-content">
-                    <ul class="cheat-list">
-                        <li><span>🧩</span> attrs → use modifiers</li>
-                        <li><span>🧩</span> invisible vs groups</li>
-                        <li><span>🧩</span> Domain: view vs model</li>
-                        <li><span>🧩</span> Context sets defaults</li>
-                        <li><span>🧩</span> Decoration for feedback</li>
-                    </ul>
+<pre>
+fields.Char()
+fields.Text()
+fields.Integer()
+fields.Float()
+fields.Boolean()
+fields.Date()
+fields.Datetime()
+
+fields.Many2one()
+fields.One2many()
+fields.Many2many()
+
+Example:
+name = fields.Char(string="Name", required=True)
+</pre>
                 </div>
             </div>
 
-            <!-- SECURITY -->
+            <!-- 4️⃣ XML VIEWS -->
             <div class="card">
-                <div class="card-header">Security Essentials <span>▼</span></div>
+                <div class="card-header">4️⃣ XML Views <span>▼</span></div>
                 <div class="card-content">
-                    <ul class="cheat-list">
-                        <li><span>🔒</span> Groups in views ≠ security</li>
-                        <li><span>🔒</span> Access Rights + Record Rules</li>
-                        <li><span>🔒</span> sudo() bypasses security</li>
-                        <li><span>🔒</span> Use check_access_rights()</li>
-                    </ul>
+<pre>
+<form string="Sales Order">
+    <sheet>
+        <group>
+            <field name="partner_id"/>
+            <field name="date_order"/>
+        </group>
+    </sheet>
+</form>
+
+<tree>
+    <field name="name"/>
+    <field name="amount_total"/>
+</tree>
+</pre>
                 </div>
             </div>
 
-            <!-- FIELDS COMMAND -->
+            <!-- 5️⃣ SECURITY -->
             <div class="card">
-                <div class="card-header">fields.Command Explained <span>▼</span></div>
+                <div class="card-header">5️⃣ Security & Access Rights <span>▼</span></div>
                 <div class="card-content">
-                    <ul class="cheat-list">
-                        <li><span>➕</span> create() → Add new</li>
-                        <li><span>✏</span> update() → Modify</li>
-                        <li><span>❌</span> unlink() → Remove</li>
-                        <li><span>🧹</span> clear() → Wipe relations</li>
-                        <li><span>🔗</span> link() → Add links</li>
-                    </ul>
+<pre>
+id,name,model_id:id,group_id:id,
+perm_read,perm_write,perm_create,perm_unlink
+
+access_sale_order,
+sale.order,
+model_sale_order,
+base.group_user,
+1,1,1,1
+</pre>
                 </div>
             </div>
 
-            <!-- PERFORMANCE -->
+            <!-- 6️⃣ CLI -->
             <div class="card">
-                <div class="card-header">Odoo Performance Tips <span>▼</span></div>
+                <div class="card-header">6️⃣ Odoo CLI Commands <span>▼</span></div>
+                <div class="card-content">
+<pre>
+# Activate venv
+source env/bin/activate
+
+# Run Odoo
+odoo-bin -c odoo.conf -d mydb --dev=all
+
+# Update module
+odoo-bin -u my_module -d mydb
+</pre>
+                </div>
+            </div>
+
+            <!-- 7️⃣ JS & OWL -->
+            <div class="card">
+                <div class="card-header">7️⃣ JavaScript & OWL <span>▼</span></div>
+                <div class="card-content">
+<pre>
+// OWL Component
+class Hello extends Component {
+    static template = xml`
+        <div>Hello OWL</div>
+    `;
+}
+
+// JSON RPC
+this.env.services.rpc({
+    route: '/my/route',
+    params: {}
+});
+</pre>
+                </div>
+            </div>
+
+            <!-- 8️⃣ BEST PRACTICES -->
+            <div class="card">
+                <div class="card-header">8️⃣ Best Practices <span>▼</span></div>
+                <div class="card-content">
+<pre>
+✔ Use @api.depends
+✔ Avoid sudo() abuse
+✔ Batch operations
+✔ XML inheritance (xpath)
+✔ Clean access rules
+</pre>
+                </div>
+            </div>
+
+            <!-- 9️⃣ PERFORMANCE -->
+            <div class="card">
+                <div class="card-header">9️⃣ Performance Tips <span>▼</span></div>
                 <div class="card-content">
                     <ul class="cheat-list">
                         <li><span>⚡</span> Avoid heavy onchange</li>
-                        <li><span>⚡</span> Batch writes, not loops</li>
+                        <li><span>⚡</span> Batch writes</li>
                         <li><span>⚡</span> Use read_group()</li>
                         <li><span>⚡</span> Prefetching is automatic</li>
                     </ul>
                 </div>
             </div>
 
-            <!-- ERRORS -->
+            <!-- 🔟 COMMON ERRORS -->
             <div class="card">
-                <div class="card-header">Common Odoo Errors & Fixes <span>▼</span></div>
+                <div class="card-header">🔟 Common Errors & Fixes <span>▼</span></div>
                 <div class="card-content">
                     <ul class="cheat-list">
                         <li><span>❗</span> Expected singleton → ensure_one()</li>
@@ -140,23 +235,19 @@
     </main>
 </div>
 
-<!-- INTERACTION SCRIPT -->
 <script>
     // Expand / Collapse cards
     document.querySelectorAll('.card-header').forEach(header => {
         header.addEventListener('click', () => {
             const content = header.nextElementSibling;
-            content.style.display = content.style.display === 'block' ? 'none' : 'block';
+            content.style.display =
+                content.style.display === 'block' ? 'none' : 'block';
         });
     });
 
     // Theme toggle
-    const themeBtn = document.querySelector('.theme-toggle');
-    themeBtn.addEventListener('click', () => {
+    document.querySelector('.theme-toggle').addEventListener('click', () => {
         document.body.classList.toggle('light');
-        themeBtn.textContent = document.body.classList.contains('light')
-            ? '🌙 Dark Mode'
-            : '☀️ Light Mode';
     });
 </script>
 
