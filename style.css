@@ -456,3 +456,82 @@ h1, h2 {
     --sidebar: #161b22;
     --accent: #58a6ff;
 }
+
+/* ================================
+   PROJECTS PAGE
+================================ */
+
+/* Project links list */
+.project-list {
+    margin-bottom: 40px;
+    padding-left: 18px;
+}
+
+.project-list li {
+    margin: 10px 0;
+}
+
+.project-list a {
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.project-list a:hover {
+    text-decoration: underline;
+}
+
+/* ================================
+   KANBAN GRID (PROJECT CARDS)
+================================ */
+
+.kanban {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+}
+
+/* Individual project card */
+.kanban-card {
+    background: var(--sidebar);
+    padding: 22px;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.35);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.kanban-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 40px rgba(0,0,0,0.45);
+}
+
+.kanban-card h3 {
+    margin-bottom: 12px;
+    color: var(--accent);
+    font-size: 17px;
+}
+
+.kanban-card p {
+    font-size: 14px;
+    margin-bottom: 8px;
+    line-height: 1.6;
+}
+
+.kanban-card span {
+    font-weight: bold;
+    color: var(--text);
+}
+
+/* ================================
+   LIGHT MODE FIXES
+================================ */
+
+.light .kanban-card {
+    background: #ffffff;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.light .kanban-card:hover {
+    box-shadow: 0 16px 40px rgba(0,0,0,0.15);
+}
+
